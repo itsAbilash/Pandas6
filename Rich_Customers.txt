@@ -1,0 +1,8 @@
+import pandas as pd
+
+def count_rich_customers(store: pd.DataFrame) -> pd.DataFrame:
+    df = store[store['amount']>500]
+    cnt = df.groupby('customer_id')
+    rich_count = len(cnt)
+    print(type(rich_count))
+    return pd.DataFrame({'rich_count':[rich_count]})
